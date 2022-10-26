@@ -1,0 +1,173 @@
+﻿@model MargonemByKycU.Models.ShopModel
+
+@{
+    ViewData["Title"] = "Sklep";
+}
+<style>
+
+    #stats {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 525px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 25px;
+    }
+
+    #title {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+</style>
+
+<div id="title">
+     Statystyki Postaci:
+</div>
+
+<div id="title">
+     Kup Ulepszenie:
+</div>
+
+<div id="stats">
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nazwa Postaci:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["nazwaPostaci"]
+        </dd>
+        <dt class="col-sm-2">
+            Klasa Postaci:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["klasaPostaci"]
+        </dd>
+        <dt class="col-sm-2">
+            Poziom:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["poziom"]
+        </dd>
+        <dt class="col-sm-2">
+            Szybkość:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["atackSpeed"]
+        </dd>
+        <dt class="col-sm-2">
+            Atak:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["atackDamage"]
+        </dd>
+        <dt class="col-sm-2">
+            Pancerz:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["armor"]
+        </dd>
+        <dt class="col-sm-2">
+            Życie:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["hitPoints"]
+        </dd>
+        <dt class="col-sm-2">
+            Punkty XP:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["xp"]
+        </dd>
+        <dt class="col-sm-2">
+            Złoto:
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["zloto"]
+        </dd>
+    </dl>
+</div>
+
+<div id="stats">
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.atackSpeedUpg)
+            + @Html.DisplayFor(model => model.atackSpeedUpg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.atackSpeedCena)
+            @TempData["cenaAtackSpeed"]
+
+            @Html.ActionLink("KUP", "CzyKupic", new { id = 1 })
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.atackDamageUpg)
+            + @Html.DisplayFor(model => model.atackDamageUpg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.atackDamageCena)
+            @TempData["cenaAtackDamage"]
+
+            @Html.ActionLink("KUP", "CzyKupic", new { id = 2 })
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.armorUpg)
+            + @Html.DisplayFor(model => model.armorUpg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.armorCena)
+            @TempData["cenaArmor"]
+
+            @Html.ActionLink("KUP", "CzyKupic", new { id = 3 })
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.hitPointsUpg)
+            + @Html.DisplayFor(model => model.hitPointsUpg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.hitPointsCena)
+            @TempData["cenaHitPoints"]
+
+            @Html.ActionLink("KUP", "CzyKupic", new { id = 4 })
+
+        </dd>
+    </dl>
+</div>
+
+<a asp-controller="Margonem" asp-action="Index"><button>Wróć</button></a>

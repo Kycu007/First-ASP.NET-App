@@ -1,0 +1,141 @@
+﻿@model MargonemByKycU.Models.PlayerAndEnemy
+
+@{
+    ViewData["Title"] = "Przegrana Walka";
+}
+
+<style>
+
+    #stats {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 350px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+    }
+
+    #title {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 95%;
+        height: 80px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+    }
+
+
+
+    #wygryw {
+        color: lawngreen;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #przegryw {
+        color: red;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+        float: right;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+</style>
+
+<h1 id="title">Porażka!</h1>
+
+<div id="stats">
+
+    <h2 id="wygryw">Wygrany!</h2>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.enemyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyLvl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.enemyLvl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyHitPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.enemyHitPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.zlotoZaWalke)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.zlotoZaWalke)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.xpZaWalke)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.xpZaWalke)
+        </dd>
+
+    </dl>
+</div>
+
+<div id="stats">
+
+    <h2 id="przegryw">Przegrany!</h2>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lvl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lvl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.hitPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.hitPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.zloto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.zloto)
+        </dd>
+    </dl>
+</div>
+
+<a asp-controller="Margonem" asp-action="Walka"><button>Zakończ</button></a>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Margonem";
+}
+
+<style>
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Witaj w Margonem!</h1>
+    <a asp-controller="Margonem" asp-action="Create"><button>Stwórz Postać!</button></a>
+</div>

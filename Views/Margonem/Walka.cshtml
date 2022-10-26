@@ -1,0 +1,145 @@
+﻿@model IEnumerable<MargonemByKycU.Models.EnemyModel>
+
+@{
+    ViewData["Title"] = "Walka";
+}
+
+<style>
+    #x {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 95%;
+        height: 100px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    #title {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 95%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+    tr {
+        border: solid gray 3px;
+    }
+
+    #y {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 25%;
+        height: 80px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+</style>
+
+<div id="title">
+    Wybierz przeciwnika:
+</div>
+
+<table id="x">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyLvl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyAtackSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyAtackDamage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyArmor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enemyHitPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.zlotoZaWalke)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.xpZaWalke)
+            </th>
+            <th>
+                <b>Walcz!</b>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyLvl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyAtackSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyAtackDamage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyArmor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enemyHitPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zlotoZaWalke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.xpZaWalke)
+                </td>
+                <td>
+                    @Html.ActionLink("Atakuj", "AtakujPrzeciwnika", new { id = item.enemyID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Margonem" asp-action="Index"><button>Wróć</button></a>

@@ -1,0 +1,90 @@
+﻿@model MargonemByKycU.Models.PlayerModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+
+    #creator {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 95%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+    #input {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 200px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: left;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+</style>
+
+<div id="creator">
+    Nowa Postać:
+</div>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <h2>
+        <div id="input">
+            <label asp-for="name" class="control-label"></label>
+            <input asp-for="name" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+
+        <div id="input">
+            <label asp-for="klasa" class="control-label"></label>
+            <br />
+            <select name="klasa">
+                <option value="Mag">Mag</option>
+                <option value="Wojownik">Wojownik</option>
+                <option value="Lowca">Łowca</option>
+            </select>
+        </div>
+    </h2>
+
+    <button type="submit">Stwórz!</button>
+
+</form>
+
+<a asp-controller="Home" asp-action="Index"><button>Wróć</button></a>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

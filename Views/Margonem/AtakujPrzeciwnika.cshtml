@@ -1,0 +1,153 @@
+﻿@model MargonemByKycU.Models.PlayerAndEnemy
+
+@{
+    ViewData["Title"] = "Walka!";
+}
+
+<style>
+
+    #gracz {
+        float: left;
+        width: 45%;
+        height: 400px;
+        border: solid black 7px;
+        background-color: orange;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #przeciwnik {
+        float: left;
+        width: 45%;
+        height: 400px;
+        border: solid black 7px;
+        background-color: orange;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #konsola {
+        float: left;
+        width: 45%;
+        height: 200px;
+        border: solid black 7px;
+        background-color: orange;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 20px;
+        overflow: scroll;
+    }
+
+    button {
+        margin-top: 25px;
+        padding-top: 25px;
+        float: right;
+        width: 45%;
+        height: 125px;
+        text-align: center;
+        background-color: orange;
+        border: solid black 7px;
+        margin: 2.5%;
+        padding: 15px;
+        font-size: 50px;
+    }
+
+        button:hover {
+            background-color: orangered;
+        }
+</style>
+
+<div id="przeciwnik">
+    <h4>Przeciwnik:</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyName)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["enemyName"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyAtackSpeed)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["enemyAtackSpeed"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyAtackDamage)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["enemyAtackDamage"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyArmor)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["enemyArmor"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.enemyHitPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["enemyHitPoints"]
+        </dd>
+
+    </dl>
+</div>
+
+<div id="gracz">
+    <h4>Gracz:</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["playerName"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.atackSpeed)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["atackSpeed"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.atackDamage)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["atackDamage"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.armor)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["armor"]
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.hitPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @TempData["hitPoints"]
+        </dd>
+
+    </dl>
+</div>
+
+<div id="konsola">
+    <ul>
+        @foreach (var item in Model.listaAtakow)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>
+
+<form asp-action="AtakujPrzeciwnika" method="post">
+    <button id="atakuj" type="submit">@TempData["button"]</button>
+</form>
