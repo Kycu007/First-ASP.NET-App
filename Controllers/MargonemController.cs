@@ -125,6 +125,8 @@ namespace MargonemByKycU.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ResetujShopModel();
+
             return View(new PlayerModel());
         }
 
@@ -216,6 +218,95 @@ namespace MargonemByKycU.Controllers
                             player.hitPoints += shopModel.hitPointsUpg;
                             player.zloto -= shopModel.hitPointsCena;
                             shopModel.hitPointsCena += 50;
+                        }
+                        else
+                        {
+                            TempData["czyStac"] = "Nie stać cię na to!";
+                            return RedirectToAction("CzyKupic");
+                        }
+                    }
+                    break;
+                default:
+                    {
+                        TempData["czyStac"] = "Coś zawiodło!";
+                        return RedirectToAction("CzyKupic");
+                    }
+            }
+            MathF.Round(player.atackSpeed);
+            MathF.Round(player.atackDamage);
+            MathF.Round(player.armor);
+            MathF.Round(player.hitPoints);
+            MathF.Round(player.zloto);
+
+            return RedirectToAction("Details");
+        }
+
+        //Czy kupic * 10
+        [HttpGet]
+        public ActionResult CzyKupicWiecej(int id)
+        {
+            shopModel.id = id;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CzyKupicWiecej()
+        {
+            switch (shopModel.id)
+            {
+                case 1:
+                    {
+                        if (player.zloto >= shopModel.atackSpeedCena * 10)
+                        {
+                            player.atackSpeed += shopModel.atackSpeedUpg * 10;
+                            player.zloto -= shopModel.atackSpeedCena * 10;
+                            shopModel.atackSpeedCena += 500;
+                        }
+                        else
+                        {
+                            TempData["czyStac"] = "Nie stać cię na to!";
+                            return RedirectToAction("CzyKupic");
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        if (player.zloto >= shopModel.atackDamageCena * 10)
+                        {
+                            player.atackDamage += shopModel.atackDamageUpg * 10;
+                            player.zloto -= shopModel.atackDamageCena * 10;
+                            shopModel.atackDamageCena += 500;
+                        }
+                        else
+                        {
+                            TempData["czyStac"] = "Nie stać cię na to!";
+                            return RedirectToAction("CzyKupic");
+                        }
+                    }
+                    break;
+                case 3:
+                    {
+                        if (player.zloto >= shopModel.armorCena * 10)
+                        {
+                            player.armor += shopModel.armorUpg * 10;
+                            player.zloto -= shopModel.armorCena * 10;
+                            shopModel.armorCena += 500;
+                        }
+                        else
+                        {
+                            TempData["czyStac"] = "Nie stać cię na to!";
+                            return RedirectToAction("CzyKupic");
+                        }
+                    }
+                    break;
+                case 4:
+                    {
+                        if (player.zloto >= shopModel.hitPointsCena * 10)
+                        {
+                            player.hitPoints += shopModel.hitPointsUpg * 10;
+                            player.zloto -= shopModel.hitPointsCena * 10;
+                            shopModel.hitPointsCena += 500;
                         }
                         else
                         {
@@ -430,6 +521,19 @@ namespace MargonemByKycU.Controllers
                 player.atackSpeed += 0.5f;
                 player.atackDamage += 25;
             }
+        }
+
+        //Po ponownym stworzeniu postaci resetuje ceny w sklepie
+        public void ResetujShopModel()
+        {
+            shopModel.atackSpeedUpg = 0.25f;
+            shopModel.atackSpeedCena = 100;
+            shopModel.atackDamageUpg = 25;
+            shopModel.atackDamageCena = 100;
+            shopModel.armorUpg = 50;
+            shopModel.armorCena = 100;
+            shopModel.hitPointsUpg = 50;
+            shopModel.hitPointsCena = 100;
         }
     }
 }
