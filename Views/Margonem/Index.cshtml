@@ -19,7 +19,7 @@
     #witaj {
         float: left;
         width: 95%;
-        height: 100px;
+        height: 150px;
         border: solid black 7px;
         text-align: center;
         background-color: orange;
@@ -41,17 +41,28 @@
         font-size: 50px;
     }
 
-    button:hover {
-        background-color: orangered;
-    }
-
+        button:hover {
+            background-color: orangered;
+        }
 </style>
 
 
 <div id="witaj">
-    <h1>Witaj w Margonem!</h1>
+    <h1>
+        <img src="~/images/margonem6.gif" asp-append-version="true">Witaj w Margonem!<img src="~/images/margonem7.gif" asp-append-version="true">
+    </h1>
 </div>
 
-<a asp-controller="Margonem" asp-action="Walka"><button>Walcz!</button></a>
+<a asp-controller="Margonem" asp-action="Walka">
+    <button>
+        Walka! <br />
+        <img src="~/images/margonem2.gif" asp-append-version="true">
+    </button>
+</a>
 
-<a asp-controller="Margonem" asp-action="Details"><button>Sklep!</button></a>
+<a asp-controller="Margonem" asp-action="Details">
+    <button>
+        Sklep! <br />   
+        <img src="~/images/margonem5.png" asp-append-version="true" width="115" height="115">
+    </button>
+</a>

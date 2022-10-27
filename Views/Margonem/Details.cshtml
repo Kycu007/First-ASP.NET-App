@@ -10,7 +10,7 @@
         padding-top: 25px;
         float: left;
         width: 45%;
-        height: 525px;
+        height: 625px;
         text-align: center;
         background-color: orange;
         border: solid black 7px;
@@ -61,6 +61,8 @@
 </div>
 
 <div id="stats">
+
+    <img src="~/images/margonem4.gif" asp-append-version="true" />
 
     <dl class="row">
         <dt class="col-sm-2">
@@ -121,6 +123,9 @@
 </div>
 
 <div id="stats">
+
+    <img src="~/images/margonem5.png" asp-append-version="true" width="115" height="115">
+
     <dl class="row">
 
         <dt class="col-sm-2">
@@ -132,6 +137,7 @@
             @TempData["cenaAtackSpeed"]
 
             @Html.ActionLink("KUP", "CzyKupic", new { id = 1 })
+            @Html.ActionLink("KUP × 10", "CzyKupicWiecej", new { id = 1 })
 
         </dd>
         <dt class="col-sm-2">
@@ -143,6 +149,7 @@
             @TempData["cenaAtackDamage"]
 
             @Html.ActionLink("KUP", "CzyKupic", new { id = 2 })
+            @Html.ActionLink("KUP × 10", "CzyKupicWiecej", new { id = 2 })
 
         </dd>
         <dt class="col-sm-2">
@@ -154,6 +161,7 @@
             @TempData["cenaArmor"]
 
             @Html.ActionLink("KUP", "CzyKupic", new { id = 3 })
+            @Html.ActionLink("KUP × 10", "CzyKupicWiecej", new { id = 3 })
 
         </dd>
         <dt class="col-sm-2">
@@ -165,6 +173,7 @@
             @TempData["cenaHitPoints"]
 
             @Html.ActionLink("KUP", "CzyKupic", new { id = 4 })
+            @Html.ActionLink("KUP × 10", "CzyKupicWiecej", new { id = 4 })
 
         </dd>
     </dl>

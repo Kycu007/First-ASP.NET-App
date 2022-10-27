@@ -246,3 +246,4 @@ C:\Users\Kapus\Desktop\MargonemByKycu\obj\Debug\net5.0\MargonemByKycU_v0.1.dll
 C:\Users\Kapus\Desktop\MargonemByKycu\obj\Debug\net5.0\ref\MargonemByKycU_v0.1.dll
 C:\Users\Kapus\Desktop\MargonemByKycu\obj\Debug\net5.0\MargonemByKycU_v0.1.pdb
 C:\Users\Kapus\Desktop\MargonemByKycu\obj\Debug\net5.0\MargonemByKycU_v0.1.genruntimeconfig.cache
+C:\Users\Kapus\Desktop\MargonemByKycu\obj\Debug\net5.0\Razor\Views\Margonem\CzyKupicWiecej.cshtml.g.cs
